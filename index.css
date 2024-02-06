@@ -1,23 +1,115 @@
+/* Reset styles */
 body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: "Protest Strike", sans-serif;
+}
+
+/* Page layout */
+body {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 100vh; 
-/*Hintergrund*/ 
-    background-image: url("hintergrund-mit-fragezeichen_78370-2896.avif");
+    min-height: 100vh;
+
+    /* Background */
+    background-image: url("mountain-valley-landscape-with-green-meadow-free-vector.jpg");
     background-size: cover;
     background-position: center;
 }
-    /*Container*/
+
+/* Container for both left and main containers */
+.container-wrapper {
+    display: flex;
+}
+
+/* Left container styles */
+.containerleft {
+    width: 250px;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 8px 6px 6px black;
+    margin-right: 25px;
+}
+
+/* Header styles for Left container */
+.containerleft .header2 {
+    margin: 10px;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 20px 15px;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+}
+
+/* Main container styles */
 .container {
     width: 430px;
     border-radius: 10px;
-    background-color: turquoise;
-    opacity: 0.8;
-    margin: 25px 25px 35px;
+    background-color: white;
+    box-shadow: 0 8px 6px 6px black;
+    opacity: 0.9;
 }
 
+/* Header styles for Main container */
+.container .header {
+    margin: 10px;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 20px 25px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+/* Input styles */
+.container .inputs {
+    margin: 20px;
+    display: flex;
+    flex-direction: row;
+}
+
+.container .inputs input {
+    width: 30px;
+    margin-right: 12px;
+    height: 30px;
+}
+
+/* Reset section styles */
+.container .Zurücksetzen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Eingabe section styles */
+.container .Eingabe {
+    /* Add styles for .Eingabe if needed */
+}
+
+/* Details section styles */
+.container .details {
+    margin: 10px;
+}
+
+/* Rechter Container styles */
+.containerright {
+    float: right; 
+    width: 250px; 
+    box-sizing: border-box; 
+    margin-left: 25px; 
+    box-shadow: 0 8px 6px 6px black;
+    background-color: white;
+    border-radius: 10px;
+}
+
+/* Header styles for Right container */
+.containerright .header2 {
+    margin: 10px;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 20px 15px;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+}

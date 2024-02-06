@@ -10,9 +10,17 @@
     <title>Wortratespiel</title>
 </head>
 <body>
+    <!-- Linker Container -->
+    <div class="containerleft">
+        <h2 class="header2">Spielername</h2>
+    </div>
+
+    <!-- Mittlerer Container -->
     <div class="container">
-        <h1>Wortratespiel</h1>
+        <h1 class="header">Wortratespiel</h1>
         <div class="inputs">
+            <input type="text" disabled>
+            <input type="text" disabled>
             <input type="text" disabled>
             <input type="text" disabled>
             <input type="text" disabled>
@@ -25,8 +33,21 @@
             <p class="Übrige Versuche">Übrige Versuche: <span>10</span></p>
             <p class="Falsche Buchstaben">Falsche Buchstaben: <span>a, b, c</span></p>
         </div>
-        <button class="Zurücksetzen">Spiel zurücksetzen</button>
+
+        <div class="Eingabe">
+            <input type="text">
+            <button class="Zurücksetzen">Spiel zurücksetzen</button>
+        </div>
     </div> 
+
+    <!-- Rechter Container -->
+    <div class="containerright">
+        <h2 class="header2">Highscore</h2>
+             <ol class="highscore-list">
+        <li>Player1 - 5000</li>
+        <li>Player2 - 4500</li>
+        <li>Player3 - 4000</li>
+    </div>
 
 </body>
 </html>
