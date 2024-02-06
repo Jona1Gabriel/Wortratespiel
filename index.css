@@ -1,0 +1,23 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Protest Strike", sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh; 
+/*Hintergrund*/ 
+    background-image: url("hintergrund-mit-fragezeichen_78370-2896.avif");
+    background-size: cover;
+    background-position: center;
+}
+    /*Container*/
+.container {
+    width: 430px;
+    border-radius: 10px;
+    background-color: turquoise;
+    opacity: 0.8;
+    margin: 25px 25px 35px;
+}
+
