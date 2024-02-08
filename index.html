@@ -22,13 +22,12 @@
         <div class="inputs"></div>
         <div class="details">
             <p class="Hinweis">Hinweis: <span>Hinweis wird hier angezeigt</span></p>
-            <p class="Übrige Versuche">Übrige Versuche: <span>10</span></p>
-            <p class="Falsche Buchstaben">Falsche Buchstaben: <span>a, b, c</span></p>
+            <p class="Übrige Versuche">Übrige Leben: <span>10</span></p>
+            <p class="Falsche Buchstaben">Falsche Buchstaben: <span></span></p>
         </div>
 
         <div class="Eingabe">
-            <input type="text" placeholder="Buchstabe eingeben...">
-
+            <input type="text" placeholder="Buchstabe eingeben..." maxlength="1">
         </div>  
         <div>
             <button class="Zurücksetzen">Spiel zurücksetzen</button>
@@ -38,10 +37,11 @@
     <!-- Rechter Container -->
     <div class="containerright">
         <h2 class="header2">Highscore</h2>
-             <ol class="highscore-list">
-        <li>Player1 - 5000</li>
-        <li>Player2 - 4500</li>
-        <li>Player3 - 4000</li>
+        <ol class="highscore-list">
+            <li>Player1 - 5000</li>
+            <li>Player2 - 4500</li>
+            <li>Player3 - 4000</li>
+        </ol>
     </div>
     <script src="words.js"></script>
     <script src="index.js"></script>
