@@ -10,10 +10,24 @@
     <title>Wortratespiel</title>
 </head>
 <body>
+
+     <!-- Fenster -->
+    <div id="AnzeigenFenster" class="fenster">
+        <div class="Fenster-Inhalt">
+          <h2>Spielername eingeben</h2>
+          <input type="text" id="playerNameInput" placeholder="Spielername">
+          <button onclick="startGame()">Spiel starten</button>
+          <p>Spielanleitung: Dies ist ein unterhaltsames Spiel, bei dem du ein geheimes Wort erraten musst. Jedes Mal, wenn du einen Buchstaben eingibst, wird überprüft, ob er im Wort vorkommt. Du hast 10 Leben, also wähle deine Buchstaben klug aus!
+            Dein Ziel ist es, das gesamte Wort zu erraten, bevor deine Leben aufgebraucht sind. Falsche Buchstaben werden angezeigt, und du kannst jederzeit den Spielstand zurücksetzen, um es erneut zu versuchen.
+            Viel Spaß und viel Erfolg beim Raten!</p>
+        </div>
+      </div>
+
     <!-- Linker Container -->
     <div class="containerleft">
         <h2 class="header2">Spielername</h2>
-        <input type="text" class="containerLeftinput">
+        <p id="AktuellerSpieler">Spieler: </p>
+        <p id="playerScore">Punktzahl: 0</p>
     </div>
 
     <!-- Mittlerer Container -->

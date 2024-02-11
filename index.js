@@ -8,6 +8,27 @@ var Eingabe = document.querySelector(".Eingabe input");
 
 let word, MaxLeben, incorrects = [], guessedLetters = [];
 
+window.onload = function() {
+    openModal();
+  }
+
+  // Funktion, um das Modal zu öffnen
+  function openModal() {
+    document.getElementById('myModal').style.display = 'block';
+  }
+
+  // Funktion, um das Spiel zu starten (könnte weiter angepasst werden)
+  function startGame() {
+    var playerName = document.getElementById('playerNameInput').value;
+    if (playerName.trim() !== "") {
+      // Spielername im linken Container aktualisieren
+      document.getElementById('playerName').textContent = playerName;
+      closeModal(); // Modal schließen
+    } else {
+      alert("Bitte einen Spielername eingeben.");
+    }
+  }
+
 function randomWord() {
     let ranObj = wordList[Math.floor(Math.random() * wordList.length)];
     word = ranObj.word;
@@ -86,9 +107,3 @@ function initGame(e) {
 Zurücksetzenbtn.addEventListener("click", randomWord);
 Eingabe.addEventListener("keydown", initGame);
 document.addEventListener("keydown", () => Eingabe.focus());
-
-
-
-
-
-
