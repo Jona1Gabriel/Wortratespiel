@@ -25,8 +25,9 @@
 
     <!-- Linker Container -->
     <div class="containerleft">
-        <h2 class="header2">Spielername</h2>
-        <p id="AktuellerSpieler">Spieler: </p>
+        <h2 class="header2" id="playerName">Spielername</h2>
+        <!-- TODO: stye this input field so it looks pretty -->
+        <p>Spieler: <span id="AktuellerSpieler"> </span></p>
         <p id="playerScore">Punktzahl: 0</p>
     </div>
 
@@ -41,7 +42,7 @@
         </div>
 
         <div class="Eingabe">
-            <input type="text" placeholder="Buchstabe eingeben..." maxlength="1">
+            <input type="text" id="guessLetter" placeholder="Buchstabe eingeben..." maxlength="1">
         </div>  
         <div>
             <button class="Zurücksetzen">Spiel zurücksetzen</button>
@@ -60,4 +61,3 @@
     <script src="words.js"></script>
     <script src="index.js"></script>
 </body>
-</html>

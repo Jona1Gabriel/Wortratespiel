@@ -8,26 +8,18 @@ var Eingabe = document.querySelector(".Eingabe input");
 
 let word, MaxLeben, incorrects = [], guessedLetters = [];
 
-window.onload = function() {
-    openModal();
-  }
-
-  // Funktion, um das Modal zu öffnen
-  function openModal() {
-    document.getElementById('myModal').style.display = 'block';
-  }
 
   // Funktion, um das Spiel zu starten (könnte weiter angepasst werden)
-  function startGame() {
+function startGame() {
     var playerName = document.getElementById('playerNameInput').value;
     if (playerName.trim() !== "") {
-      // Spielername im linken Container aktualisieren
-      document.getElementById('playerName').textContent = playerName;
-      closeModal(); // Modal schließen
+        // Spielername im linken Container aktualisieren
+        document.getElementById('AktuellerSpieler').innerText = playerName;
+        // closeModal(); // Modal schließen
     } else {
-      alert("Bitte einen Spielername eingeben.");
+        alert("Bitte einen Spielername eingeben.");
     }
-  }
+}
 
 function randomWord() {
     let ranObj = wordList[Math.floor(Math.random() * wordList.length)];
@@ -49,6 +41,15 @@ function randomWord() {
     guessedLetters = [];
     FalscherBuchstabe.innerText = "";
 }
+
+function checkifletterexists() {
+    // chech if guessLetter holds value != ""
+      var Eingabe = document.getElementById('guessLetter').value;
+    if (Eingabe.length == 1) {
+        document.getElementById('guessLetter').innerText = "";
+    }
+}
+
 
 function gameOver() {
     console.log("Game Over!");
@@ -94,7 +95,8 @@ function initGame(e) {
             }
         }
         // Clear the input field
-        Eingabe.value = "";
+        console.log("remove letter")
+        console.log(document.getElementById('guessLetter'))
 
         // Check if the word is completely guessed
         if (checkWordGuessed()) {
@@ -106,4 +108,4 @@ function initGame(e) {
 
 Zurücksetzenbtn.addEventListener("click", randomWord);
 Eingabe.addEventListener("keydown", initGame);
-document.addEventListener("keydown", () => Eingabe.focus());
+// document.addEventListener("keydown", () => Eingabe.focus());
