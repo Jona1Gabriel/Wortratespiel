@@ -7,7 +7,27 @@ var FalscherBuchstabe = FalscherBuchstabeContainer.querySelector("span");
 var Eingabe = document.querySelector(".Eingabe input");
 
 let word, MaxLeben, incorrects = [], guessedLetters = [];
+let playerScore = 0;
 
+window.onload = function () {
+    // Alert mit Spielanleitung und Aufforderung zur Eingabe des Spielernamens
+    var playerName = prompt("Willkommen zum Wortratespiel!\n\nBitte gib deinen Spielername ein:");
+
+    // Überprüfen, ob der Spieler einen Namen eingegeben hat
+    if (playerName !== null && playerName.trim() !== "") {
+        // Spielername im linken Container aktualisieren
+        document.getElementById('AktuellerSpieler').innerText = playerName;
+        // Starte das Spiel oder zeige weitere Anweisungen an
+        alert("Hallo, " + playerName + "!\n\nSpielanleitung: Dies ist ein unterhaltsames Spiel, bei dem du ein geheimes Wort erraten musst. Jedes Mal, wenn du einen Buchstaben eingibst, wird überprüft, ob er im Wort vorkommt. Du hast 10 Leben, also wähle deine Buchstaben klug aus! Dein Ziel ist es, das gesamte Wort zu erraten, bevor deine Leben aufgebraucht sind. Falsche Buchstaben werden angezeigt, und du kannst jederzeit den Spielstand zurücksetzen, um es erneut zu versuchen. Viel Spaß und viel Erfolg beim Raten!");
+        
+        // Starte das Spiel hier, wenn gewünscht
+        // startGame();
+    } else {
+        // Spieler hat keinen Namen eingegeben
+        alert("Du hast keinen gültigen Spielername eingegeben. Die Seite wird neu geladen.");
+        location.reload();
+    }
+};
 
   // Funktion, um das Spiel zu starten (könnte weiter angepasst werden)
 function startGame() {
@@ -19,12 +39,27 @@ function startGame() {
     } else {
         alert("Bitte einen Spielername eingeben.");
     }
+    var guessLetter = document.getElementById('guessLetter').value.toUpperCase();
+    if (checkWord(guessLetter)) {
+        playerScore += 100;
+        updateScoreDisplay();
+    }
+}
+
+function updateScoreDisplay() {
+    const scoreElement = document.getElementById('playerScore');
+    scoreElement.textContent = `Punktzahl: ${playerScore}`;
 }
 
 function randomWord() {
     let ranObj = wordList[Math.floor(Math.random() * wordList.length)];
     word = ranObj.word;
-    MaxLeben = 10;
+
+    if (typeof MaxLeben === 'undefined') {
+        MaxLeben = 10;
+        ÜbrigeLeben.innerText = MaxLeben;
+    }
+
     console.log(word);
 
     Hinweis.innerText = ranObj.Hinweis;
@@ -57,7 +92,16 @@ function gameOver() {
     alert("Game Over! Try again.");
     // You can also reset the game if needed
     randomWord();
+
+    // Call the reloadPage function at the end of gameOver
+    reloadPage();
 }
+
+// Define the reloadPage function outside of gameOver
+function reloadPage() {
+    location.reload();
+}
+
 
 randomWord();
 
@@ -106,6 +150,11 @@ function initGame(e) {
     }
 }
 
-Zurücksetzenbtn.addEventListener("click", randomWord);
+Zurücksetzenbtn.addEventListener("click", reloadPage);
+
+function reloadPage() {
+    location.reload();
+}
+
 Eingabe.addEventListener("keydown", initGame);
 // document.addEventListener("keydown", () => Eingabe.focus());

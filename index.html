@@ -8,56 +8,47 @@
     <link href="https://fonts.googleapis.com/css2?family=Protest+Strike&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
     <title>Wortratespiel</title>
+    <style src="index.css"></style>
 </head>
 <body>
+    
+<!-- Linker Container -->
+<div class="containerleft">
+    <h2 class="header2" id="playerName">Spielername</h2>
+    <p>Spieler: <span id="AktuellerSpieler"> </span></p>
+    <p id="playerScore">Punktzahl: 0</p>
+</div>
 
-     <!-- Fenster -->
-    <div id="AnzeigenFenster" class="fenster">
-        <div class="Fenster-Inhalt">
-          <h2>Spielername eingeben</h2>
-          <input type="text" id="playerNameInput" placeholder="Spielername">
-          <button onclick="startGame()">Spiel starten</button>
-          <p>Spielanleitung: Dies ist ein unterhaltsames Spiel, bei dem du ein geheimes Wort erraten musst. Jedes Mal, wenn du einen Buchstaben eingibst, wird überprüft, ob er im Wort vorkommt. Du hast 10 Leben, also wähle deine Buchstaben klug aus!
-            Dein Ziel ist es, das gesamte Wort zu erraten, bevor deine Leben aufgebraucht sind. Falsche Buchstaben werden angezeigt, und du kannst jederzeit den Spielstand zurücksetzen, um es erneut zu versuchen.
-            Viel Spaß und viel Erfolg beim Raten!</p>
-        </div>
-      </div>
-
-    <!-- Linker Container -->
-    <div class="containerleft">
-        <h2 class="header2" id="playerName">Spielername</h2>
-        <!-- TODO: stye this input field so it looks pretty -->
-        <p>Spieler: <span id="AktuellerSpieler"> </span></p>
-        <p id="playerScore">Punktzahl: 0</p>
+<!-- Mittlerer Container -->
+<div class="container">
+    <h1 class="header">Wortratespiel</h1>
+    <div class="inputs"></div>
+    <div class="details">
+        <p class="Hinweis">Hinweis: <span>Hinweis wird hier angezeigt</span></p>
+        <p class="Übrige Versuche">Übrige Leben: <span>10</span></p>
+        <p class="Falsche Buchstaben">Falsche Buchstaben: <span></span></p>
     </div>
 
-    <!-- Mittlerer Container -->
-    <div class="container">
-        <h1 class="header">Wortratespiel</h1>
-        <div class="inputs"></div>
-        <div class="details">
-            <p class="Hinweis">Hinweis: <span>Hinweis wird hier angezeigt</span></p>
-            <p class="Übrige Versuche">Übrige Leben: <span>10</span></p>
-            <p class="Falsche Buchstaben">Falsche Buchstaben: <span></span></p>
-        </div>
-
-        <div class="Eingabe">
-            <input type="text" id="guessLetter" placeholder="Buchstabe eingeben..." maxlength="1">
-        </div>  
-        <div>
-            <button class="Zurücksetzen">Spiel zurücksetzen</button>
-        </div>
-    </div> 
-
-    <!-- Rechter Container -->
-    <div class="containerright">
-        <h2 class="header2">Highscore</h2>
-        <ol class="highscore-list">
-            <li>Player1 - 5000</li>
-            <li>Player2 - 4500</li>
-            <li>Player3 - 4000</li>
-        </ol>
+    <div class="Eingabe">
+        <input type="text" id="guessLetter" placeholder="Buchstabe eingeben..." maxlength="1">
     </div>
-    <script src="words.js"></script>
-    <script src="index.js"></script>
+    <div>
+        <button class="Zurücksetzen">Spiel zurücksetzen</button>
+    </div>
+</div>
+
+<!-- Rechter Container -->
+<div class="containerright">
+    <h2 class="header2">Highscore</h2>
+    <ol class="highscore-list">
+        <li>Player1 - 5000</li>
+        <li>Player2 - 4500</li>
+        <li>Player3 - 4000</li>
+    </ol>
+</div>
+
+<script src="words.js"></script>
+<script src="index.js"></script>
+
 </body>
+</html>
