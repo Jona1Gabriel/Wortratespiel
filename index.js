@@ -54,23 +54,8 @@ function startGame() {
     // Überprüfe, ob der eingegebene Buchstabe im Wort enthalten ist
     var guessLetter = document.getElementById('guessLetter').value.toUpperCase();
     
-    // Punktzahl bei richtig geratenen Wort um 100 erhöhen
-    if (checkWordGuessed(guessLetter)) {
-        playerScore += 100;
-        console.log(playerScore)
-        updateScoreDisplay();
-    }
+
 }
-
-function updateScoreDisplay() {
-
-    //Liest aus Feld `playerScore` den Namen des Spielers und speichert ihn in `scoreElement`.
-    //const scoreElement = document.getElementById('playerScore');
-    document.getElementById("playerScore").innerHTML = `Punktzahl: ${playerScore}`;
-    //
-    //scoreElement.textContent = `Punktzahl: ${playerScore}`;
-}
-
 
 
 function randomWord() {
@@ -89,7 +74,7 @@ function randomWord() {
 
     let html = "";
     for (let i = 0; i < word.length; i++) {
-        html += `<input type="text" disabled>`;
+        html += `<input type="text" id="inputs" disabled>`;
     }
     inputs.innerHTML = html;
 
@@ -107,17 +92,96 @@ function checkifletterexists() {
     }
 }
 
+function clearDisplay() {
+    let AktuellerSpieler = document.getElementById("AktuellerSpieler");
+    let playerScoreElement = document.getElementById("playerScore");
+    let ÜbrigeLeben = document.getElementById("LeftLives");
+    let FalscherBuchstabe = document.getElementById("wrongLetters");
+    let inputs  = document.getElementById("inputs");
 
-function gameOver() {
-    console.log("Game Over!");
-    // Add your game over logic here, for example, displaying an alert
-    alert("Game Over! Try again.");
-    // You can also reset the game if needed
-    randomWord();
+    AktuellerSpieler.value = "";
+    playerScore = 0;  // Setzen Sie den Wert der Variable playerScore zurück
+    playerScoreElement.innerHTML = `Punktzahl: ${playerScore}`;
+    ÜbrigeLeben = 10;
+    FalscherBuchstabe = "";
+    let html = "";
+    for (let i = 0; i < word.length; i++) {
+        html += `<input type="text" id="inputs" disabled>`;
+    }
+    inputs.innerHTML = html;
 
-    // Call the reloadPage function at the end of gameOver
-    reloadPage();
-}
+     //Nachricht beim Laden der Seite
+     var playerName = prompt("Willkommen zum Wortratespiel!\n\nBitte gib deinen Spielername ein:");
+
+     // Überprüfen, ob der Spieler einen Namen eingegeben hat
+     if (playerName !== null && playerName.trim() !== "") {
+ 
+         // Spielername im linken Container aktualisieren
+         document.getElementById('AktuellerSpieler').innerText = playerName;
+ 
+         // Starte das Spiel oder zeige weitere Anweisungen an
+         alert("Hallo, " + playerName + "!\n\nSpielanleitung: Dies ist ein unterhaltsames Spiel, bei dem du ein geheimes Wort erraten musst. Jedes Mal, wenn du einen Buchstaben eingibst, wird überprüft, ob er im Wort vorkommt. Du hast 10 Leben, also wähle deine Buchstaben klug aus! Dein Ziel ist es, das gesamte Wort zu erraten, bevor deine Leben aufgebraucht sind. Falsche Buchstaben werden angezeigt, und du kannst jederzeit den Spielstand zurücksetzen, um es erneut zu versuchen. Viel Spaß und viel Erfolg beim Raten!");
+ 
+     } else {
+ 
+         // Spieler hat keinen Namen eingegeben
+         alert("Du hast keinen gültigen Spielername eingegeben. Die Seite wird neu geladen.");
+         location.reload();
+     }
+    }
+
+
+    async function gameOver() {
+        console.log("Game Over!");
+        alert("Game Over!")
+
+        try {
+            const response = await fetch("https://pokeapi.co/api/v2/pokemon/ditto");
+            const data = await response.json();
+    
+            // Extract Pokémon information
+            const name = data.name;
+            const height = data.height;
+            const weight = data.weight;
+            const imageUrl = data.sprites.front_default;
+    
+            // Display Pokémon information in the modal
+            document.getElementById('pokemonInfo').innerHTML = `Game Over! Try again.<br>Your score: ${playerScore}<br>Pokemon Information:<br>Name: ${name}<br>Height: ${height}<br>Weight: ${weight}`;
+    
+            // Display the Pokémon image in the modal
+            document.getElementById('pokemonImage').src = imageUrl;
+    
+            // Open the modal
+            openModal();
+        } catch (error) {
+            console.error("Error fetching Pokemon information:", error);
+            alert(`Game Over! Try again.\nYour score: ${playerScore}`);
+        }
+    
+        if (playerScore > highscore) {
+            highscore = playerScore;
+            alert("New Highscore! Your score: " + playerScore);
+        }
+    
+        // You can also reset the game if needed
+        randomWord();
+    
+        // Call the reloadPage function at the end of gameOver
+        clearDisplay();
+    }
+    
+    // Function to open the modal
+    function openModal() {
+        document.getElementById('myModal').style.display = 'block';
+    }
+    
+    // Function to close the modal
+    function closeModal() {
+        document.getElementById('myModal').style.display = 'none';
+    }
+    
+    
+    
 
 // Define the reloadPage function outside of gameOver
 function reloadPage() {
@@ -161,8 +225,8 @@ function initGame(e) {
             }
         }
         // Clear the input field
-        let Sui = document.getElementById("guessLetter")
-        Sui.value = "";
+        let Punkterhöhung = document.getElementById("guessLetter")
+        Punkterhöhung.value = "";
 
 
         // Check if the word is completely guessed
@@ -176,13 +240,10 @@ function initGame(e) {
     }
 }
 
-Zurücksetzenbtn.addEventListener("click", reloadPage);
+Zurücksetzenbtn.addEventListener("click", clearDisplay);
 
 Eingabe.addEventListener("keydown", initGame);
 // document.addEventListener("keydown", () => Eingabe.focus()); 
 
-function reloadPage() {
-    location.reload();
-}
 
 console.log(playerScore)

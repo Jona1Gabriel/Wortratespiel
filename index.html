@@ -12,6 +12,14 @@
 </head>
 <body>
 
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+          <span class="close" onclick="closeModal()">&times;</span>
+          <div id="pokemonInfo"></div>
+          <img id="pokemonImage" src="" alt="Pokemon Image">
+        </div>
+      </div>
+
 <!-- Linker Container -->
 <div class="containerleft">
     <h2 class="header2" id="playerName">Spielername</h2>
@@ -22,11 +30,11 @@
 <!-- Mittlerer Container -->
 <div class="container">
     <h1 class="header">Wortratespiel</h1>
-    <div class="inputs"></div>
+    <div class="inputs" id="inputs"></div>
     <div class="details">
         <p class="Hinweis">Hinweis: <span>Hinweis wird hier angezeigt</span></p>
-        <p class="Übrige Versuche">Übrige Leben: <span>10</span></p>
-        <p class="Falsche Buchstaben">Falsche Buchstaben: <span></span></p>
+        <p class="Übrige Versuche" id="LeftLives">Übrige Leben: <span>10</span></p>
+        <p class="Falsche Buchstaben" id="wrongletters">Falsche Buchstaben: <span></span></p>
     </div>
 
     <div class="Eingabe">
