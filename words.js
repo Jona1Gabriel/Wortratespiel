@@ -43,4 +43,28 @@ const wordList = [
         word:"nasa",
         Hinweis:"USA-amerikanische Weltraumagentur"
     },
+    {
+        word:"paris",
+        Hinweis:"Hauptstadt Frankreichs"
+    },
+    {
+        word:"amazon",
+        Hinweis:"Online-Versandhandelsunternehmen und Cloud-Computing-Anbieter"
+    },
+    {
+        word:"london",
+        Hinweis:"Hauptstadt des Vereinigten Königreichs"
+    },
+    {
+        word:"boxen",
+        Hinweis:"Kampfsportart"
+    },
+    {
+        word:"indien",
+        Hinweis:"Land in Südasien mit einer der größten Bevölkerungen der Welt"
+    },
+    {
+        word:"Elefant",
+        Hinweis:"Säugetierart aus Afrika und Asien"
+    },
 ]
