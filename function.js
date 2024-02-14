@@ -16,7 +16,6 @@ let highscore = 0;
 // Funktion zur Anzeige einer Nachricht beim Laden der Seite
 window.onload = function () {
     var playerName = prompt("Willkommen zum Wortratespiel!\n\nBitte gib deinen Spielername ein:");
-
     if (playerName !== null && playerName.trim() !== "") {
         document.getElementById('AktuellerSpieler').innerText = playerName;
         alert("Hallo, " + playerName + "!\n\nSpielanleitung: Dies ist ein unterhaltsames Spiel, bei dem du ein geheimes Wort erraten musst. Jedes Mal, wenn du einen Buchstaben eingibst, wird überprüft, ob er im Wort vorkommt. Du hast 10 Leben, also wähle deine Buchstaben klug aus! Dein Ziel ist es, das gesamte Wort zu erraten, bevor deine Leben aufgebraucht sind. Falsche Buchstaben werden angezeigt, und du kannst jederzeit den Spielstand zurücksetzen, um es erneut zu versuchen. Viel Spaß und viel Erfolg beim Raten!");
@@ -136,6 +135,9 @@ function initGame(e) {
 function gameOver() {
     alert("Game Over!");
 
+    let audio = new Audio ('sounds/glaceon_cry-39075.mp3');
+    audio.play();
+    
     if (playerScore > highscore) {
         highscore = playerScore;
         document.getElementById("scorehigh").innerHTML = `High Score: ${highscore}`;

@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
     //Ausführung des Zurücksetzen-Buttons
     document.getElementById("Zurücksetzen").addEventListener("click", function(){
-
+        
         //Ausführung resetgame
         resetGame();
     });
