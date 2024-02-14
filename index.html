@@ -11,14 +11,15 @@
     <style src="index.css"></style>
 </head>
 <body>
-
-    <div id="myModal" class="modal">
-        <div class="modal-content">
+    
+<!-- API Modal -->
+<div id="myModal" class="modal">
+     <div class="modal-content">
           <span class="close" onclick="closeModal()">&times;</span>
           <div id="pokemonInfo"></div>
           <img id="pokemonImage" src="" alt="Pokemon Image">
-        </div>
-      </div>
+     </div>
+</div>
 
 <!-- Linker Container -->
 <div class="containerleft">
@@ -41,20 +42,21 @@
         <input type="text" id="guessLetter" placeholder="Buchstabe eingeben..." maxlength="1">
     </div>
     <div>
-        <button class="Zurücksetzen">Spiel zurücksetzen</button>
+        <button class="Zurücksetzen" id="Zurücksetzen">Spiel zurücksetzen</button>
     </div>
 </div>
 
 <!-- Rechter Container -->
 <div class="containerright">
     <h2 class="header2">Highscore</h2>
-    <ol class="highscore">
-        <li>Player1 - 5000</li>
+    <ol class="highscore" id="scorehigh">
+        <p>Kein Highscore</p>
     </ol>
 </div>
 
 <script src="words.js"></script>
 <script src="index.js"></script>
+<script src="function.js"></script>
 
 </body>
 </html>
