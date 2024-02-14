@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Protest+Strike&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+    <title>Wortratespiel</title>
+    <style src="index.css"></style>
+</head>
+<body>
+    
+<!-- API Modal -->
+<div id="myModal" class="modal">
+     <div class="modal-content">
+          <span class="close" onclick="closeModal()">&times;</span>
+          <div id="pokemonInfo"></div>
+          <img id="pokemonImage" src="" alt="Pokemon Image">
+     </div>
+</div>
+
+<!-- Linker Container -->
+<div class="containerleft">
+    <h2 class="header2" id="playerName">Spielername</h2>
+    <p>Spieler: <span id="AktuellerSpieler"> </span></p>
+    <p id="playerScore">Punktzahl: 0</p>
+</div>
+
+<!-- Mittlerer Container -->
+<div class="container">
+    <h1 class="header">Wortratespiel</h1>
+    <div class="inputs" id="inputs"></div>
+    <div class="details">
+        <p class="Hinweis">Hinweis: <span>Hinweis wird hier angezeigt</span></p>
+        <p class="Übrige Versuche" id="LeftLives">Übrige Leben: <span>10</span></p>
+        <p class="Falsche Buchstaben" id="wrongletters">Falsche Buchstaben: <span></span></p>
+    </div>
+
+    <div class="Eingabe">
+        <input type="text" id="guessLetter" placeholder="Buchstabe eingeben..." maxlength="1">
+    </div>
+    <div>
+        <button class="Zurücksetzen" id="Zurücksetzen">Spiel zurücksetzen</button>
+    </div>
+</div>
+
+<!-- Rechter Container -->
+<div class="containerright">
+    <h2 class="header2">Highscore</h2>
+    <ol class="highscore" id="scorehigh">
+        <p>Kein Highscore</p>
+    </ol>
+</div>
+
+<script src="words.js"></script>
+<script src="index.js"></script>
+<script src="function.js"></script>
+
+</body>
+</html>
